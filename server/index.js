@@ -18,6 +18,10 @@ app.use(
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
+app.get("/", (req, res) => {
+  res.send("ok");
+});
+
 const port = process.env.PORT || 4000;
 const start = async () => {
   try {
