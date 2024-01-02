@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/recipes");
+        const response = await axios.get("/recipes");
         setRecipes(response.data);
       } catch (err) {
         console.log(err);

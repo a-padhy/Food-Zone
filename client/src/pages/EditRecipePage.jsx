@@ -48,7 +48,7 @@ const CreateRecipe = () => {
     event.preventDefault();
     try {
       await axios.put(
-        "http://localhost:4000/recipes/edit/" + recipe._id,
+        "/edit/" + recipe._id,
         { ...recipe },
         {
           headers: { authorization: cookies.access_token },
