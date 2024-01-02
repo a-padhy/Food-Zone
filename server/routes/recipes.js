@@ -26,7 +26,6 @@ router.post("/", verifyToken, async (req, res) => {
     cookingTime: req.body.cookingTime,
     userOwner: req.body.userOwner,
   });
-  console.log(recipe);
 
   try {
     const result = await recipe.save();
