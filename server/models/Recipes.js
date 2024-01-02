@@ -29,6 +29,10 @@ const recipeSchema = mongoose.Schema({
     ref: "User",
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
 export const RecipesModel = mongoose.model("Recipes", recipeSchema);

@@ -18,7 +18,6 @@ const HomePage = () => {
     fetchRecipes();
   }, []);
 
-  // Filter recipes based on the search query
   const filteredRecipes = recipes.filter(
     (recipe) =>
       recipe.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -32,7 +31,6 @@ const HomePage = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-semibold mb-8">Recipes Collection</h1>
 
-      {/* Search input */}
       <div className="mb-4">
         <input
           type="text"
@@ -53,9 +51,6 @@ const HomePage = () => {
             <div>
               <h2 className="text-lg font-semibold">{recipe.name}</h2>
             </div>
-            {/* <div className="instructions">
-              <p>{recipe.description}</p>
-            </div> */}
             <img
               src={recipe.imageUrl}
               alt={recipe.name}

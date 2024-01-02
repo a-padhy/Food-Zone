@@ -29,7 +29,8 @@ const SingleRecipePage = () => {
           alt={recipe.name}
           className="mb-4 rounded-md shadow-md"
         />
-        <div className="mb-6">
+        <div>{recipe.description}</div>
+        <div className="mb-6 mt-2">
           <h2 className="text-xl font-semibold mb-2">Ingredients:</h2>
           <ul className="list-disc pl-4">
             {recipe.ingredients.map((ingredient, index) => (

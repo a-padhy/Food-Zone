@@ -22,6 +22,7 @@ router.post("/", verifyToken, async (req, res) => {
     image: req.body.image,
     ingredients: req.body.ingredients,
     instructions: req.body.instructions,
+    description: req.body.description,
     imageUrl: req.body.imageUrl,
     cookingTime: req.body.cookingTime,
     userOwner: req.body.userOwner,
@@ -35,16 +36,15 @@ router.post("/", verifyToken, async (req, res) => {
         image: result.image,
         ingredients: result.ingredients,
         instructions: result.instructions,
+        description: result.description,
         _id: result._id,
       },
     });
   } catch (err) {
-    // console.log(err);
     res.status(500).json(err);
   }
 });
 
-// Get a recipe by ID
 router.get("/:recipeId", async (req, res) => {
   try {
     const result = await RecipesModel.findById(req.params.recipeId);
@@ -56,7 +56,14 @@ router.get("/:recipeId", async (req, res) => {
 
 router.put("/edit/:id", verifyToken, async (req, res) => {
   try {
-    const { name, ingredients, instructions, imageUrl, cookingTime } = req.body;
+    const {
+      name,
+      ingredients,
+      instructions,
+      imageUrl,
+      cookingTime,
+      description,
+    } = req.body;
     const result = await RecipesModel.findById(req.params.id);
     await result.set({
       name,
@@ -64,6 +71,7 @@ router.put("/edit/:id", verifyToken, async (req, res) => {
       instructions,
       imageUrl,
       cookingTime,
+      description,
     });
     await result.save();
     res.json(result);
@@ -71,7 +79,5 @@ router.put("/edit/:id", verifyToken, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.put("/");
 
 export { router as recipesRouter };

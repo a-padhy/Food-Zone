@@ -18,7 +18,7 @@ app.use(
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
