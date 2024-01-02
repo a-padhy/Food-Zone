@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import { RecipesModel } from "../models/Recipes.js";
-import { UserModel } from "../models/Users.js";
 import { verifyToken } from "./user.js";
 
 const router = express.Router();
@@ -55,5 +54,25 @@ router.get("/:recipeId", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.put("/edit/:id", verifyToken, async (req, res) => {
+  try {
+    const { name, ingredients, instructions, imageUrl, cookingTime } = req.body;
+    const result = await RecipesModel.findById(req.params.id);
+    await result.set({
+      name,
+      ingredients,
+      instructions,
+      imageUrl,
+      cookingTime,
+    });
+    await result.save();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json(err);
+  }
+});
+
+router.put("/");
 
 export { router as recipesRouter };
