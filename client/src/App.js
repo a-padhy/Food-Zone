@@ -10,7 +10,7 @@ import CreateRecipePage from "./pages/CreateRecipe";
 import EditRecipePage from "./pages/EditRecipePage";
 import ErrorPage from "./pages/ErrorPage";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://food-verse-nine.vercel.app";
 axios.defaults.withCredentials = true;
 
 const App = () => {
