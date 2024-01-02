@@ -8,6 +8,7 @@ import axios from "axios";
 import SingleRecipePage from "./pages/SingleRecipePage";
 import CreateRecipePage from "./pages/CreateRecipe";
 import EditRecipePage from "./pages/EditRecipePage";
+import ErrorPage from "./pages/ErrorPage";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/recipes/:id" element={<SingleRecipePage />} />
         <Route path="/recipes/edit/:id" element={<EditRecipePage />} />
         <Route path="/new" element={<CreateRecipePage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );
