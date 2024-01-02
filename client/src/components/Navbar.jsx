@@ -36,10 +36,18 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <button className="text-white hover:text-gray-300" onClick={logout}>
-              {" "}
-              Logout{" "}
-            </button>
+            <>
+              <Link to="/new" className="text-white hover:text-gray-300">
+                Create Recipe
+              </Link>
+              <button
+                className="text-white hover:text-gray-300"
+                onClick={logout}
+              >
+                {" "}
+                Logout{" "}
+              </button>
+            </>
           )}
         </div>
       </div>

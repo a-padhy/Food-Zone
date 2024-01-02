@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./db/connect.js";
 import { userRouter } from "./routes/user.js";
+import { recipesRouter } from "./routes/recipes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -15,10 +16,7 @@ app.use(
   })
 );
 app.use("/auth", userRouter);
-
-app.get("/", (req, res) => {
-  res.send("ok");
-});
+app.use("/recipes", recipesRouter);
 
 const port = 4000;
 const start = async () => {
