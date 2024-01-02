@@ -1,0 +1,52 @@
+export const recipes = [
+  {
+    id: 1,
+    title: "Spaghetti Bolognese",
+    image: "https://www.slimmingeats.com/blog/spaghetti-bolognese",
+    ingredients: [
+      "500g ground beef",
+      "1 onion, finely chopped",
+      "2 cloves garlic, minced",
+      "1 can (400g) crushed tomatoes",
+      "2 tablespoons tomato paste",
+      "1 teaspoon dried oregano",
+      "1 teaspoon dried basil",
+      "Salt and pepper to taste",
+      "300g spaghetti",
+      "Grated Parmesan cheese for serving",
+    ],
+    instructions: [
+      "In a large skillet, brown the ground beef over medium heat.",
+      "Add chopped onions and minced garlic, sauté until onions are translucent.",
+      "Stir in crushed tomatoes, tomato paste, oregano, basil, salt, and pepper. Simmer for 20 minutes.",
+      "Cook spaghetti according to package instructions.",
+      "Serve the Bolognese sauce over cooked spaghetti. Top with grated Parmesan cheese.",
+    ],
+  },
+  {
+    id: 2,
+    title: "Chicken Stir-Fry",
+    ingredients: [
+      "500g boneless, skinless chicken breasts, thinly sliced",
+      "2 cups broccoli florets",
+      "1 bell pepper, sliced",
+      "1 carrot, julienned",
+      "3 tablespoons soy sauce",
+      "2 tablespoons oyster sauce",
+      "1 tablespoon sesame oil",
+      "2 cloves garlic, minced",
+      "1 teaspoon ginger, grated",
+      "2 tablespoons vegetable oil",
+      "Cooked rice for serving",
+    ],
+    instructions: [
+      "In a wok or large skillet, heat vegetable oil over high heat.",
+      "Add sliced chicken and stir-fry until browned and cooked through.",
+      "Add garlic and ginger, sauté for 1-2 minutes.",
+      "Add broccoli, bell pepper, and carrot. Stir-fry until vegetables are tender-crisp.",
+      "In a small bowl, mix soy sauce, oyster sauce, and sesame oil. Pour over the chicken and vegetables. Stir to combine.",
+      "Serve the chicken stir-fry over cooked rice.",
+    ],
+  },
+  // Add more recipes as needed
+];

@@ -28,11 +28,18 @@ const Navbar = () => {
           </Link>
           {!cookies.access_token ? (
             <>
-              <Link to="/register">Register</Link>
-              <Link to="/login">Login</Link>
+              <Link to="/register" className="text-white hover:text-gray-300">
+                Register
+              </Link>
+              <Link to="/login" className="text-white hover:text-gray-300">
+                Login
+              </Link>
             </>
           ) : (
-            <button onClick={logout}> Logout </button>
+            <button className="text-white hover:text-gray-300" onClick={logout}>
+              {" "}
+              Logout{" "}
+            </button>
           )}
         </div>
       </div>
