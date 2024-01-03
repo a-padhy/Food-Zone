@@ -5,14 +5,17 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await axios.get("/recipes");
         setRecipes(response.data);
+        setLoading(false);
       } catch (err) {
         console.log(err);
+        setLoading(false);
       }
     };
     fetchRecipes();
@@ -41,25 +44,29 @@ const HomePage = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
-        {filteredRecipes.map((recipe) => (
-          <Link
-            key={recipe._id}
-            to={`/recipes/${recipe._id}`}
-            className="recipe-card"
-          >
-            <div>
-              <h2 className="text-lg font-semibold">{recipe.name}</h2>
-            </div>
-            <img
-              src={recipe.imageUrl}
-              alt={recipe.name}
-              className="w-full h-32 object-cover"
-            />
-            <p>Cooking Time: {recipe.cookingTime} minutes</p>
-          </Link>
-        ))}
-      </div>
+      {!loading ? (
+        <p>Loading Recipes...</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+          {filteredRecipes.map((recipe) => (
+            <Link
+              key={recipe._id}
+              to={`/recipes/${recipe._id}`}
+              className="recipe-card"
+            >
+              <div>
+                <h2 className="text-lg font-semibold">{recipe.name}</h2>
+              </div>
+              <img
+                src={recipe.imageUrl}
+                alt={recipe.name}
+                className="w-full h-32 object-cover"
+              />
+              <p>Cooking Time: {recipe.cookingTime} minutes</p>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
