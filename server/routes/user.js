@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 const router = express.Router();
-const secret = process.env.JWT_SECRET;
 import { UserModel } from "../models/Users.js";
 
 router.post("/register", async (req, res) => {
@@ -39,7 +38,7 @@ router.post("/login", async (req, res) => {
       .status(400)
       .json({ message: "Username or password is incorrect" });
   }
-  const token = jwt.sign({ id: user._id }, secret);
+  const token = jwt.sign({ id: user._id }, "secret");
   res.json({ token, userID: user._id });
 });
 
@@ -48,7 +47,7 @@ export { router as userRouter };
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (authHeader) {
-    jwt.verify(authHeader, secret, (err) => {
+    jwt.verify(authHeader, "secret", (err) => {
       if (err) {
         return res.sendStatus(403);
       }
